@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management - PiiComm Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>PiiComm Admin</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="roles.html" class="active">Roles</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+        <div class="nav-toggle">☰</div>
+    </nav>
+    
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Role Management</h1>
+            <div class="page-actions">
+                <button class="btn btn-primary" id="createRoleBtn">Create Role</button>
+                <button class="btn btn-outline" id="importRolesBtn">Import Roles</button>
+            </div>
+        </div>
+        
+        <div class="roles-grid">
+            <div class="role-card" data-role="admin">
+                <div class="role-header">
+                    <h3>Admin</h3>
+                    <span class="role-users">12 users</span>
+                </div>
+                <div class="role-description">
+                    Full system access with all administrative privileges
+                </div>
+                <div class="role-permissions">
+                    <span class="permission-tag">User Management</span>
+                    <span class="permission-tag">System Config</span>
+                    <span class="permission-tag">Reports</span>
+                    <span class="permission-tag">All Tickets</span>
+                </div>
+                <div class="role-actions">
+                    <button class="btn btn-sm btn-outline" onclick="editRole('admin')">Edit</button>
+                    <button class="btn btn-sm btn-secondary" onclick="viewUsers('admin')">View Users</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/roles.js"></script>
+</body>
+</html>
