@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PiiComm Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>PiiComm Admin</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="roles.html">Roles</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+        <div class="nav-toggle">☰</div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <div class="user-info">
+                <span id="userName">Admin User</span>
+                <span id="userRole" class="role-badge">Admin</span>
+            </div>
+        </div>
+        
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <div class="stat-number" id="totalUsers">195</div>
+                <div class="stat-change">+12% this month</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Tickets</h3>
+                <div class="stat-number" id="activeTickets">24</div>
+                <div class="stat-change">-5% this week</div>
+            </div>
+            <div class="stat-card">
+                <h3>Pending Reviews</h3>
+                <div class="stat-number" id="pendingReviews">7</div>
+                <div class="stat-change">+8% today</div>
+            </div>
+            <div class="stat-card">
+                <h3>System Health</h3>
+                <div class="stat-number health-good">98.5%</div>
+                <div class="stat-change">All systems operational</div>
+            </div>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-widget">
+                <h3>Recent Activity</h3>
+                <div id="recentActivity" class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">👤</div>
+                        <div class="activity-content">
+                            <p><strong>New user registered:</strong> john.doe@company.com</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">🎫</div>
+                        <div class="activity-content">
+                            <p><strong>Ticket #1247 resolved</strong> by Sarah Williams</p>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <h3>Ticket Status Distribution</h3>
+                <div class="chart-placeholder">
+                    <canvas id="ticketChart" width="300" height="200"></canvas>
+                </div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <h3>Quick Actions</h3>
+                <div class="quick-actions">
+                    <button class="btn btn-primary" onclick="window.location.href='users.html'">
+                        Add New User
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='tickets.html'">
+                        Create Ticket
+                    </button>
+                    <button class="btn btn-outline" onclick="exportData()">
+                        Export Data
+                    </button>
+                    <button class="btn btn-outline" onclick="systemMaintenance()">
+                        System Maintenance
+                    </button>
+                </div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <h3>System Alerts</h3>
+                <div id="systemAlerts" class="alerts-container">
+                    <div class="alert alert-info">
+                        <strong>Info:</strong> Scheduled maintenance on Sunday 2 AM - 4 AM
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
