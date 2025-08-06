@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Management - PiiComm Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>PiiComm Admin</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li><a href="tickets.html" class="active">Tickets</a></li>
+            <li><a href="roles.html">Roles</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+        <div class="nav-toggle">☰</div>
+    </nav>
+    
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Ticket Management</h1>
+            <div class="page-actions">
+                <button class="btn btn-primary" id="createTicketBtn">Create Ticket</button>
+                <button class="btn btn-outline" id="bulkAssignBtn">Bulk Assign</button>
+                <button class="btn btn-outline" id="exportTicketsBtn">Export</button>
+            </div>
+        </div>
+        
+        <div class="filters-bar">
+            <div class="filter-group">
+                <input type="text" id="searchTickets" placeholder="Search tickets..." class="search-input">
+                <select id="statusFilter" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="open">Open</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="closed">Closed</option>
+                </select>
+                <select id="priorityFilter" class="filter-select">
+                    <option value="">All Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+                <select id="assigneeFilter" class="filter-select">
+                    <option value="">All Assignees</option>
+                    <option value="unassigned">Unassigned</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="data-table" id="ticketsTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll"></th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Assignee</th>
+                        <th>Requester</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="ticketsTableBody">
+                    <!-- Tickets will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button id="prevPage" class="btn btn-outline">Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage" class="btn btn-outline">Next</button>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/tickets.js"></script>
+</body>
+</html>
