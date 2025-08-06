@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - PiiComm Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h2>PiiComm Admin</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="users.html" class="active">Users</a></li>
+            <li><a href="tickets.html">Tickets</a></li>
+            <li><a href="roles.html">Roles</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+        <div class="nav-toggle">☰</div>
+    </nav>
+    
+    <div class="page-container">
+        <div class="page-header">
+            <h1>User Management</h1>
+            <div class="page-actions">
+                <button class="btn btn-primary" id="addUserBtn">Add New User</button>
+                <button class="btn btn-outline" id="importUsersBtn">Import Users</button>
+                <button class="btn btn-outline" id="exportUsersBtn">Export Users</button>
+            </div>
+        </div>
+        
+        <div class="filters-bar">
+            <div class="filter-group">
+                <input type="text" id="searchUsers" placeholder="Search users..." class="search-input">
+                <select id="roleFilter" class="filter-select">
+                    <option value="">All Roles</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="agent">Agent</option>
+                    <option value="user">User</option>
+                </select>
+                <select id="statusFilter" class="filter-select">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="data-table" id="usersTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll"></th>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last Login</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <!-- Users will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button id="prevPage" class="btn btn-outline">Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage" class="btn btn-outline">Next</button>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/users.js"></script>
+</body>
+</html>
